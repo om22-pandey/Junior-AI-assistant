@@ -1,0 +1,89 @@
+Database Schema: public
+
+Table: payments
+  Column: payment_id, Data Type: integer
+  Column: ride_id, Data Type: integer
+  Column: user_id, Data Type: integer
+  Column: amount, Data Type: numeric
+  Column: payment_method, Data Type: character varying
+  Column: payment_status, Data Type: character varying
+  Column: transaction_id, Data Type: character varying
+  Column: payment_time, Data Type: timestamp without time zone
+  Sample Data:
+    {'payment_id': 1, 'ride_id': 13960, 'user_id': 6945, 'amount': Decimal('16.07'), 'payment_method': 'credit_card', 'payment_status': 'completed', 'transaction_id': 'TXN-00000001', 'payment_time': datetime.datetime(2026, 4, 7, 15, 15, 52)}
+    {'payment_id': 2, 'ride_id': 1187, 'user_id': 5541, 'amount': Decimal('47.01'), 'payment_method': 'debit_card', 'payment_status': 'completed', 'transaction_id': 'TXN-00000002', 'payment_time': datetime.datetime(2025, 10, 7, 14, 56, 33)}
+    {'payment_id': 3, 'ride_id': 3719, 'user_id': 8738, 'amount': Decimal('74.77'), 'payment_method': 'paypal', 'payment_status': 'completed', 'transaction_id': 'TXN-00000003', 'payment_time': datetime.datetime(2026, 1, 14, 16, 19, 32)}
+    {'payment_id': 4, 'ride_id': 15623, 'user_id': 5455, 'amount': Decimal('66.79'), 'payment_method': 'apple_pay', 'payment_status': 'completed', 'transaction_id': 'TXN-00000004', 'payment_time': datetime.datetime(2026, 3, 20, 8, 37, 33)}
+    {'payment_id': 5, 'ride_id': 15032, 'user_id': 1129, 'amount': Decimal('30.85'), 'payment_method': 'paypal', 'payment_status': 'completed', 'transaction_id': 'TXN-00000005', 'payment_time': datetime.datetime(2026, 4, 29, 18, 56, 19)}
+
+Table: ratings
+  Column: rating_id, Data Type: integer
+  Column: ride_id, Data Type: integer
+  Column: rider_id, Data Type: integer
+  Column: driver_id, Data Type: integer
+  Column: rating, Data Type: integer
+  Column: comment, Data Type: text
+  Column: rated_at, Data Type: timestamp without time zone
+  Sample Data:
+    {'rating_id': 1, 'ride_id': 13870, 'rider_id': 5833, 'driver_id': 7667, 'rating': 5, 'comment': 'Could have been better', 'rated_at': datetime.datetime(2025, 9, 9, 13, 41, 28)}
+    {'rating_id': 2, 'ride_id': 2279, 'rider_id': 1026, 'driver_id': 3147, 'rating': 4, 'comment': 'Could have been better', 'rated_at': datetime.datetime(2026, 6, 2, 23, 39, 31)}
+    {'rating_id': 3, 'ride_id': 19701, 'rider_id': 960, 'driver_id': 2267, 'rating': 5, 'comment': 'Great ride', 'rated_at': datetime.datetime(2026, 7, 23, 6, 31, 59)}
+    {'rating_id': 4, 'ride_id': 860, 'rider_id': 2999, 'driver_id': 4679, 'rating': 3, 'comment': 'Average experience', 'rated_at': datetime.datetime(2026, 4, 23, 4, 57, 28)}
+    {'rating_id': 5, 'ride_id': 7868, 'rider_id': 4277, 'driver_id': 8698, 'rating': 5, 'comment': 'Average experience', 'rated_at': datetime.datetime(2025, 10, 9, 6, 15, 35)}
+
+Table: rides
+  Column: ride_id, Data Type: integer
+  Column: rider_id, Data Type: integer
+  Column: driver_id, Data Type: integer
+  Column: requested_at, Data Type: timestamp without time zone
+  Column: pickup_time, Data Type: timestamp without time zone
+  Column: dropoff_time, Data Type: timestamp without time zone
+  Column: pickup_latitude, Data Type: numeric
+  Column: pickup_longitude, Data Type: numeric
+  Column: dropoff_latitude, Data Type: numeric
+  Column: dropoff_longitude, Data Type: numeric
+  Column: distance_km, Data Type: numeric
+  Column: fare, Data Type: numeric
+  Column: surge_multiplier, Data Type: numeric
+  Column: status, Data Type: character varying
+  Column: cancellation_reason, Data Type: character varying
+  Sample Data:
+    {'ride_id': 1, 'rider_id': 6166, 'driver_id': 7514, 'requested_at': datetime.datetime(2026, 2, 27, 20, 13, 30), 'pickup_time': None, 'dropoff_time': None, 'pickup_latitude': Decimal('44.229291'), 'pickup_longitude': Decimal('-63.543162'), 'dropoff_latitude': Decimal('44.496423'), 'dropoff_longitude': Decimal('-67.980735'), 'distance_km': Decimal('0.00'), 'fare': Decimal('0.00'), 'surge_multiplier': Decimal('1.00'), 'status': 'cancelled', 'cancellation_reason': 'driver_cancelled'}
+    {'ride_id': 2, 'rider_id': 5074, 'driver_id': 4936, 'requested_at': datetime.datetime(2025, 12, 26, 8, 26, 37), 'pickup_time': datetime.datetime(2025, 12, 26, 8, 34, 37), 'dropoff_time': datetime.datetime(2025, 12, 26, 8, 59, 37), 'pickup_latitude': Decimal('43.881270'), 'pickup_longitude': Decimal('-70.083206'), 'dropoff_latitude': Decimal('43.410488'), 'dropoff_longitude': Decimal('-70.560855'), 'distance_km': Decimal('13.16'), 'fare': Decimal('52.17'), 'surge_multiplier': Decimal('1.50'), 'status': 'completed', 'cancellation_reason': None}
+    {'ride_id': 3, 'rider_id': 2969, 'driver_id': 5849, 'requested_at': datetime.datetime(2025, 7, 3, 7, 58, 26), 'pickup_time': datetime.datetime(2025, 7, 3, 8, 2, 26), 'dropoff_time': datetime.datetime(2025, 7, 3, 9, 2, 26), 'pickup_latitude': Decimal('43.856247'), 'pickup_longitude': Decimal('-75.945737'), 'dropoff_latitude': Decimal('44.133943'), 'dropoff_longitude': Decimal('-70.313959'), 'distance_km': Decimal('26.59'), 'fare': Decimal('70.53'), 'surge_multiplier': Decimal('1.00'), 'status': 'completed', 'cancellation_reason': None}
+    {'ride_id': 4, 'rider_id': 7932, 'driver_id': 1030, 'requested_at': datetime.datetime(2025, 3, 1, 4, 50, 4), 'pickup_time': datetime.datetime(2025, 3, 1, 5, 3, 4), 'dropoff_time': datetime.datetime(2025, 3, 1, 5, 40, 4), 'pickup_latitude': Decimal('44.360329'), 'pickup_longitude': Decimal('-64.339011'), 'dropoff_latitude': Decimal('44.395041'), 'dropoff_longitude': Decimal('-77.436515'), 'distance_km': Decimal('11.35'), 'fare': Decimal('42.98'), 'surge_multiplier': Decimal('1.20'), 'status': 'completed', 'cancellation_reason': None}
+    {'ride_id': 5, 'rider_id': 2468, 'driver_id': 8856, 'requested_at': datetime.datetime(2026, 7, 9, 7, 45, 41), 'pickup_time': datetime.datetime(2026, 7, 9, 7, 51, 41), 'dropoff_time': datetime.datetime(2026, 7, 9, 8, 36, 41), 'pickup_latitude': Decimal('43.696089'), 'pickup_longitude': Decimal('-66.938775'), 'dropoff_latitude': Decimal('44.669130'), 'dropoff_longitude': Decimal('-74.876163'), 'distance_km': Decimal('23.35'), 'fare': Decimal('59.61'), 'surge_multiplier': Decimal('1.00'), 'status': 'completed', 'cancellation_reason': None}
+
+Table: users
+  Column: user_id, Data Type: integer
+  Column: first_name, Data Type: character varying
+  Column: last_name, Data Type: character varying
+  Column: email, Data Type: character varying
+  Column: phone, Data Type: character varying
+  Column: city, Data Type: character varying
+  Column: province, Data Type: character varying
+  Column: user_type, Data Type: character varying
+  Column: signup_date, Data Type: date
+  Column: is_active, Data Type: boolean
+  Sample Data:
+    {'user_id': 1, 'first_name': 'Danielle', 'last_name': 'Johnson', 'email': 'user1@example.com', 'phone': '+13567729816', 'city': 'Halifax', 'province': 'NS', 'user_type': 'rider', 'signup_date': datetime.date(2025, 5, 25), 'is_active': True}
+    {'user_id': 2, 'first_name': 'Joshua', 'last_name': 'Walker', 'email': 'user2@example.com', 'phone': '+19222900764', 'city': 'Vancouver', 'province': 'BC', 'user_type': 'rider', 'signup_date': datetime.date(2025, 5, 4), 'is_active': True}
+    {'user_id': 3, 'first_name': 'Jill', 'last_name': 'Rhodes', 'email': 'user3@example.com', 'phone': '+12900432998', 'city': 'Winnipeg', 'province': 'MB', 'user_type': 'rider', 'signup_date': datetime.date(2026, 5, 24), 'is_active': True}
+    {'user_id': 4, 'first_name': 'Patricia', 'last_name': 'Miller', 'email': 'user4@example.com', 'phone': '+19812397600', 'city': 'Montreal', 'province': 'QC', 'user_type': 'rider', 'signup_date': datetime.date(2026, 5, 21), 'is_active': True}
+    {'user_id': 5, 'first_name': 'Robert', 'last_name': 'Johnson', 'email': 'user5@example.com', 'phone': '+16892737056', 'city': 'Winnipeg', 'province': 'MB', 'user_type': 'rider', 'signup_date': datetime.date(2024, 4, 15), 'is_active': True}
+
+Table: vehicles
+  Column: vehicle_id, Data Type: integer
+  Column: driver_id, Data Type: integer
+  Column: make, Data Type: character varying
+  Column: model, Data Type: character varying
+  Column: year, Data Type: integer
+  Column: license_plate, Data Type: character varying
+  Column: color, Data Type: character varying
+  Column: is_active, Data Type: boolean
+  Sample Data:
+    {'vehicle_id': 1, 'driver_id': 7, 'make': 'Honda', 'model': 'CR-V', 'year': 2024, 'license_plate': 'OP331', 'color': 'Grey', 'is_active': True}
+    {'vehicle_id': 2, 'driver_id': 10, 'make': 'Hyundai', 'model': 'Sonata', 'year': 2026, 'license_plate': 'WK520', 'color': 'Black', 'is_active': True}
+    {'vehicle_id': 3, 'driver_id': 19, 'make': 'Ford', 'model': 'Fusion', 'year': 2022, 'license_plate': 'LI224', 'color': 'Black', 'is_active': True}
+    {'vehicle_id': 4, 'driver_id': 25, 'make': 'Toyota', 'model': 'RAV4', 'year': 2015, 'license_plate': 'FN542', 'color': 'Black', 'is_active': True}
+    {'vehicle_id': 5, 'driver_id': 26, 'make': 'Hyundai', 'model': 'Sonata', 'year': 2016, 'license_plate': 'CS875', 'color': 'Grey', 'is_active': True}
